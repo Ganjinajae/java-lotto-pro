@@ -58,7 +58,7 @@ public class Lotto {
         return Objects.hash(lottoNumbers);
     }
 
-    public boolean hasBonusBall(LottoNumber bonusBall) {
-        return lottoNumbers.contains(bonusBall);
+    public boolean hasNumber(LottoNumber lottoNumber) {
+        return lottoNumbers.contains(lottoNumber);
     }
 }
