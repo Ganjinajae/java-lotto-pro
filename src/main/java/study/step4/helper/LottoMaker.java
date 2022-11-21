@@ -5,8 +5,11 @@ import study.step4.models.LottoNumber;
 import study.step4.models.Lottos;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class LottoMaker {
     private static final int SUB_LIST_START_INDEX = 0;
@@ -19,7 +22,7 @@ public class LottoMaker {
         for (int i = 0; i < autoLottoCount; i++) {
             autoLottoList.add(makeLotto());
         }
-        return new Lottos(manualLottosList, autoLottoList);
+        return new Lottos(Stream.of(manualLottosList, autoLottoList).flatMap(Collection::stream).collect(Collectors.toList()));
     }
 
     private static List<Lotto> makeManualLottoList(List<String> manualLottosString) {
